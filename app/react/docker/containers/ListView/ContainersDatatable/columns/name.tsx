@@ -5,7 +5,7 @@ import { useSref } from '@uirouter/react';
 import type {
   ContainersTableSettings,
   DockerContainer,
-} from '@/docker/containers/types';
+} from '@/react/docker/containers/types';
 
 import { useTableSettings } from '@@/datatables/useTableSettings';
 

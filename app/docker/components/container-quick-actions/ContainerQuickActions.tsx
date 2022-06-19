@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { Authorized } from '@/portainer/hooks/useUser';
 import { react2angular } from '@/react-tools/react2angular';
-import { ContainerStatus } from '@/docker/containers/types';
+import { ContainerStatus } from '@/react/docker/containers/types';
 
 import { Link } from '@@/Link';
 

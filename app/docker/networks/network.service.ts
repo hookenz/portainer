@@ -1,7 +1,6 @@
 import axios, { parseAxiosError } from '@/portainer/services/axios';
 import { EnvironmentId } from '@/portainer/environments/types';
-
-import { ContainerId } from '../containers/types';
+import { ContainerId } from '@/react/docker/containers/types';
 
 import { NetworkId, DockerNetwork } from './types';
 

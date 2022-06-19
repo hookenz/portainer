@@ -5,7 +5,7 @@ import { ContainerQuickActions } from '@/docker/components/container-quick-actio
 import type {
   ContainersTableSettings,
   DockerContainer,
-} from '@/docker/containers/types';
+} from '@/react/docker/containers/types';
 import { EnvironmentStatus } from '@/portainer/environments/types';
 
 import { useTableSettings } from '@@/datatables/useTableSettings';

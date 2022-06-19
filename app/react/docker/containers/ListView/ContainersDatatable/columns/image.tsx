@@ -2,7 +2,7 @@ import { Column } from 'react-table';
 import { useSref } from '@uirouter/react';
 
 import { EnvironmentStatus } from '@/portainer/environments/types';
-import type { DockerContainer } from '@/docker/containers/types';
+import type { DockerContainer } from '@/react/docker/containers/types';
 
 import { useRowContext } from '../RowContext';
 

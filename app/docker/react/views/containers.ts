@@ -1,13 +1,13 @@
 import { StateRegistry } from '@uirouter/angularjs';
 import angular from 'angular';
 
-import { ContainersViewAngular } from './ContainersView/ContainersView';
-import { ContainersDatatableAngular } from './ContainersView/ContainersDatatable';
+import { r2a } from '@/react-tools/react2angular';
+import { ContainersView } from '@/react/docker/containers/ListView';
 
-export default angular
+export const containersModule = angular
   .module('portainer.docker.containers', [])
-  .component('containersView', ContainersViewAngular)
-  .component('containersDatatable', ContainersDatatableAngular)
+  .component('containersView', r2a(ContainersView, ['endpoint']))
+
   .config(config).name;
 
 /* @ngInject */
@@ -27,7 +27,7 @@ function config($stateRegistryProvider: StateRegistry) {
     url: '/:id?nodeName',
     views: {
       'content@': {
-        templateUrl: '../views/containers/edit/container.html',
+        templateUrl: '~@/docker/views/containers/edit/container.html',
         controller: 'ContainerController',
       },
     },
@@ -38,7 +38,7 @@ function config($stateRegistryProvider: StateRegistry) {
     url: '/attach',
     views: {
       'content@': {
-        templateUrl: '../views/containers/console/attach.html',
+        templateUrl: '~@/docker/views/containers/console/attach.html',
         controller: 'ContainerConsoleController',
       },
     },
@@ -49,7 +49,7 @@ function config($stateRegistryProvider: StateRegistry) {
     url: '/exec',
     views: {
       'content@': {
-        templateUrl: '../views/containers/console/exec.html',
+        templateUrl: '~@/docker/views/containers/console/exec.html',
         controller: 'ContainerConsoleController',
       },
     },
@@ -60,7 +60,7 @@ function config($stateRegistryProvider: StateRegistry) {
     url: '/new?nodeName&from',
     views: {
       'content@': {
-        templateUrl: '../views/containers/create/createcontainer.html',
+        templateUrl: '~@/docker/views/containers/create/createcontainer.html',
         controller: 'CreateContainerController',
       },
     },
@@ -71,7 +71,7 @@ function config($stateRegistryProvider: StateRegistry) {
     url: '/inspect',
     views: {
       'content@': {
-        templateUrl: '../views/containers/inspect/containerinspect.html',
+        templateUrl: '~@/docker/views/containers/inspect/containerinspect.html',
         controller: 'ContainerInspectController',
       },
     },
@@ -82,7 +82,7 @@ function config($stateRegistryProvider: StateRegistry) {
     url: '/logs',
     views: {
       'content@': {
-        templateUrl: '../views/containers/logs/containerlogs.html',
+        templateUrl: '~@/docker/views/containers/logs/containerlogs.html',
         controller: 'ContainerLogsController',
       },
     },
@@ -93,7 +93,7 @@ function config($stateRegistryProvider: StateRegistry) {
     url: '/stats',
     views: {
       'content@': {
-        templateUrl: '../views/containers/stats/containerstats.html',
+        templateUrl: '~@/docker/views/containers/stats/containerstats.html',
         controller: 'ContainerStatsController',
       },
     },

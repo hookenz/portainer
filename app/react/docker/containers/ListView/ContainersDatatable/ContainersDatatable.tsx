@@ -1,9 +1,9 @@
+import { Environment } from '@/portainer/environments/types';
+
 import {
   TableSettingsProvider,
   useTableSettings,
 } from '@@/datatables/useTableSettings';
-import { Environment } from '@/portainer/environments/types';
-import { r2a } from '@/react-tools/react2angular';
 
 import { Filters } from '../../containers.service';
 import { ContainersTableSettings, DockerContainer } from '../../types';
@@ -86,12 +86,3 @@ function ContainersLoader({
 
   return <>{children(containersQuery.data)}</>;
 }
-
-export const ContainersDatatableAngular = r2a(ContainersDatatable, [
-  'isAddActionVisible',
-  'isHostColumnVisible',
-  'isRefreshVisible',
-  'tableKey',
-  'environment',
-  'filters',
-]);

@@ -7,14 +7,14 @@ import { useEnvironmentId } from '@/portainer/hooks/useEnvironmentId';
 import { confirmDeletionAsync } from '@/portainer/services/modal.service/confirm';
 import { AccessControlPanel } from '@/portainer/access-control/AccessControlPanel/AccessControlPanel';
 import { ResourceControlType } from '@/portainer/access-control/types';
-import { DockerContainer } from '@/docker/containers/types';
+import { DockerContainer } from '@/react/docker/containers/types';
 import { ResourceControlViewModel } from '@/portainer/access-control/models/ResourceControlViewModel';
+import { useContainers } from '@/react/docker/containers/queries';
 
 import { PageHeader } from '@@/PageHeader';
 
 import { useNetwork, useDeleteNetwork } from '../queries';
 import { isSystemNetwork } from '../network.helper';
-import { useContainers } from '../../containers/queries';
 import { DockerNetwork, NetworkContainer } from '../types';
 
 import { NetworkDetailsTable } from './NetworkDetailsTable';

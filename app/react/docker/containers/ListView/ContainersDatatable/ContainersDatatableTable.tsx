@@ -12,7 +12,7 @@ import { useMemo } from 'react';
 import type {
   ContainersTableSettings,
   DockerContainer,
-} from '@/docker/containers/types';
+} from '@/react/docker/containers/types';
 import { Environment } from '@/portainer/environments/types';
 
 import { Checkbox } from '@@/form-components/Checkbox';

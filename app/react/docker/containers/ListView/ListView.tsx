@@ -1,7 +1,6 @@
 import { useInfo } from '@/docker/services/system.service';
 import { Environment } from '@/portainer/environments/types';
 import { isAgentEnvironment } from '@/portainer/environments/utils';
-import { r2a } from '@/react-tools/react2angular';
 
 import { PageHeader } from '@@/PageHeader';
 
@@ -39,5 +38,3 @@ export function ContainersView({ endpoint: environment }: Props) {
     </>
   );
 }
-
-export const ContainersViewAngular = r2a(ContainersView, ['endpoint']);

@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import {
   type DockerContainer,
   ContainerStatus,
-} from '@/docker/containers/types';
+} from '@/react/docker/containers/types';
 
 import { DefaultFilter } from '@@/datatables/Filter';
 

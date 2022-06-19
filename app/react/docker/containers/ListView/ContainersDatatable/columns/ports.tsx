@@ -1,7 +1,7 @@
 import { Column } from 'react-table';
 import _ from 'lodash';
 
-import type { DockerContainer, Port } from '@/docker/containers/types';
+import type { DockerContainer, Port } from '@/react/docker/containers/types';
 
 import { useRowContext } from '../RowContext';
 

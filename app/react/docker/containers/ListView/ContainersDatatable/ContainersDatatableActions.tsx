@@ -8,7 +8,7 @@ import {
   ContainerId,
   ContainerStatus,
   DockerContainer,
-} from '@/docker/containers/types';
+} from '@/react/docker/containers/types';
 import {
   killContainer,
   pauseContainer,
@@ -17,7 +17,7 @@ import {
   resumeContainer,
   startContainer,
   stopContainer,
-} from '@/docker/containers/containers.service';
+} from '@/react/docker/containers/containers.service';
 import type { EnvironmentId } from '@/portainer/environments/types';
 
 import { Link } from '@@/Link';
