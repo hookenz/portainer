@@ -21,6 +21,7 @@ function SidebarController($rootScope, $scope, $transitions, StateManager, Notif
 
   async function initView() {
     $scope.uiVersion = StateManager.getState().application.version;
+    $scope.edition = 'Community Edition';
     $scope.logo = StateManager.getState().application.logo;
 
     $scope.endpointId = EndpointProvider.endpointID();
