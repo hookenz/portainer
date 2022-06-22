@@ -3,7 +3,7 @@ import { RegistryTypes } from '@/portainer/models/registryTypes';
 
 export default class RegistryController {
   /* @ngInject */
-  constructor($async, $state, RegistryService, Notifications) {
+  constructor($async, $state, $scope, RegistryService, Notifications) {
     Object.assign(this, { $async, $state, RegistryService, Notifications });
 
     this.RegistryTypes = RegistryTypes;
@@ -16,13 +16,15 @@ export default class RegistryController {
     this.formValues = {
       Password: '',
     };
+
+    this.scope = $scope;
   }
 
   passwordLabel() {
     const type = this.registry.Type;
     switch (type) {
       case RegistryTypes.ECR:
-        return 'AWS Secret Access Key';
+        return 'AWS secret access key';
       case RegistryTypes.DOCKERHUB:
         return 'Access token';
       default:
@@ -49,20 +51,6 @@ export default class RegistryController {
     });
   }
 
-  onChangeName() {
-    this.state.nameAlreadyExists = _.includes(this.registriesNames, this.formValues.Name);
-  }
-
-  isUpdateButtonDisabled() {
-    return (
-      this.state.actionInProgress ||
-      this.state.nameAlreadyExists ||
-      !this.registry.Name ||
-      !this.registry.URL ||
-      (this.registry.Type == this.RegistryTypes.QUAY && this.registry.Quay.UseOrganisation && !this.registry.Quay.OrganisationName)
-    );
-  }
-
   async $onInit() {
     try {
       this.state.loading = true;
@@ -74,7 +62,10 @@ export default class RegistryController {
 
       const registries = await this.RegistryService.registries();
       _.pullAllBy(registries, [registry], 'Id');
-      this.registriesNames = _.map(registries, 'Name');
+      this.scope.registriesNames = _.map(registries, 'Name');
+      this.scope.isUnique = function (value) {
+        return !_.includes(this.registriesNames, value);
+      };
     } catch (err) {
       this.Notifications.error('Failure', err, 'Unable to retrieve registry details');
     } finally {
