@@ -13,11 +13,17 @@ type Handler struct {
 	wasInstanceDisabled func() bool
 }
 
+// var (
+// 	//go:embed static
+// 	assets embed.FS
+// )
+
 // NewHandler creates a handler to serve static files.
 func NewHandler(assetPublicPath string, wasInstanceDisabled func() bool) *Handler {
 	h := &Handler{
 		Handler: handlers.CompressHandler(
 			http.FileServer(http.Dir(assetPublicPath)),
+			//http.FileServer()
 		),
 		wasInstanceDisabled: wasInstanceDisabled,
 	}
